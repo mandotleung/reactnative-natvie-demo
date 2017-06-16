@@ -12,6 +12,6 @@ import {
   View
 } from 'react-native';
 
-import VideoEditorDemo from './app/index';
+import DemoApp from './app/index';
 
-AppRegistry.registerComponent('VideoEditorDemo', () => VideoEditorDemo);
+AppRegistry.registerComponent('VideoEditorDemo', () => DemoApp);

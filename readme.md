@@ -7,6 +7,13 @@ Then, run
 cd VideoEditorDemo  
 react-native run-android  
 ```
+or
+```
+react-native run-android 
+quick app
+open android studio
+run the app
+```
 
 ### Remarks  
 iOS not ready

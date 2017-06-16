@@ -14,11 +14,43 @@
 
 import {
   AndroidDemoToastModule,
-  AndroidVideoPickerModule
+  AndroidVideoPickerModule,
+  Log,
+  DemoPickerView
 } from './NativeModules/Android/index';
 
- export default class VideoEditorDemo extends Component{
+import { StackNavigator } from 'react-navigation';
+
+import { VideoPickerScreen } from './routes';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  button: {
+    marginBottom: 15,
+  },
+});
+
+class VideoEditorDemo extends Component{
+  static navigationOptions = {
+    title: 'VideoEditorDemo',
+  };
    render() {
+     const { navigate } = this.props.navigation;
      return (
        <View style={styles.container}>
          <Text style={styles.welcome}>
@@ -53,12 +85,22 @@ import {
                AndroidVideoPickerModule.pickNEditVideoAsActivity()
                .then((path) => {
                  console.log(path);
-                 AndroidDemoToastModule.show('path: ' + path, AndroidDemoToastModule.SHORT);
+                 Log.i('index.js', path);
+                 //AndroidDemoToastModule.show('path: ' + path, AndroidDemoToastModule.SHORT);
                })
                .catch((err) => {
                  console.log(err);
-                 AndroidDemoToastModule.show('err: ' + err, AndroidDemoToastModule.SHORT);
+                 Log.e('index.js', err);
+                 //AndroidDemoToastModule.show('err: ' + err, AndroidDemoToastModule.SHORT);
                })
+             }}
+           />
+         </View>
+
+         <View style={styles.button}>
+           <Button title='RN Launch Video Editor Lib as View'
+             onPress={()=>{
+               navigate('VideoPickerScreen')
              }}
            />
          </View>
@@ -67,24 +109,9 @@ import {
    }
  }
 
- const styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     justifyContent: 'center',
-     alignItems: 'center',
-     backgroundColor: '#F5FCFF',
-   },
-   welcome: {
-     fontSize: 20,
-     textAlign: 'center',
-     margin: 10,
-   },
-   instructions: {
-     textAlign: 'center',
-     color: '#333333',
-     marginBottom: 5,
-   },
-   button: {
-     marginBottom: 15,
-   },
- });
+const DemoApp = StackNavigator({
+  Home: { screen: VideoEditorDemo },
+  VideoPickerScreen: { screen: VideoPickerScreen },
+});
+
+export default DemoApp;
