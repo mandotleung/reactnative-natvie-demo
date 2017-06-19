@@ -1,4 +1,4 @@
-//flow
+//@flow
 
 import { PropTypes } from 'react';
 import { requireNativeComponent, View } from 'react-native';
@@ -6,7 +6,7 @@ import { requireNativeComponent, View } from 'react-native';
 var iface = {
   name: 'DemoPickerView',
   propTypes: {
-    //stock: PropTypes.object
+    stock: PropTypes.string,
     ...View.propTypes // include the default view properties
   },
 };

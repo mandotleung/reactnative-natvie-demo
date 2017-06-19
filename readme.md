@@ -1,3 +1,6 @@
+### introduction
+A sample to demonstrate interactive between ReactNative and Native
+
 ### Prerequisite
 To compile this demo please follow the instruction to install react-native  
 https://facebook.github.io/react-native/docs/getting-started.html

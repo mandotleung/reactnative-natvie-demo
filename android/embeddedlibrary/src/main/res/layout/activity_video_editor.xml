@@ -16,7 +16,7 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:text="I pass you /video/xxx"
+        android:text="/video/xxx"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

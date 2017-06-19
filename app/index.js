@@ -86,12 +86,12 @@ class VideoEditorDemo extends Component{
                .then((path) => {
                  console.log(path);
                  Log.i('index.js', path);
-                 //AndroidDemoToastModule.show('path: ' + path, AndroidDemoToastModule.SHORT);
+                 AndroidDemoToastModule.show('path: ' + path, AndroidDemoToastModule.SHORT);
                })
                .catch((err) => {
                  console.log(err);
-                 Log.e('index.js', err);
-                 //AndroidDemoToastModule.show('err: ' + err, AndroidDemoToastModule.SHORT);
+                 Log.e('index.js', err.message);
+                 AndroidDemoToastModule.show('err: ' + err, AndroidDemoToastModule.SHORT);
                })
              }}
            />

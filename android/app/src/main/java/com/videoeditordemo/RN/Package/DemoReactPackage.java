@@ -1,12 +1,14 @@
-package com.videoeditordemo;
+package com.videoeditordemo.RN.Package;
 
+import com.embeddedlibrary.View.ReactPickerViewManager;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.modules.toast.*;
-import com.facebook.react.modules.toast.ToastModule;
 import com.facebook.react.uimanager.ViewManager;
+import com.videoeditordemo.RN.Module.DemoToastModule;
+import com.videoeditordemo.RN.Module.NativeLogModule;
+import com.videoeditordemo.RN.Module.VideoPickerModule;
 
 import java.util.ArrayList;
 import java.util.Arrays;

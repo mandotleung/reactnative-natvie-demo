@@ -1,4 +1,4 @@
-package com.videoeditordemo;
+package com.videoeditordemo.RN.Module;
 
 import android.widget.Toast;
 

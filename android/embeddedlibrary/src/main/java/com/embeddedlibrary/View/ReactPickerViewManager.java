@@ -1,16 +1,11 @@
-package com.videoeditordemo;
+package com.embeddedlibrary.View;
 
-import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.view.LayoutInflater;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
+import com.embeddedlibrary.View.DemoPickerView;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.videoeditordemo.View.DemoPickerView;
 
 import org.json.JSONObject;
 
@@ -36,8 +31,8 @@ public class ReactPickerViewManager extends ViewGroupManager<DemoPickerView> {
 
     }
 
-//    @ReactProp(name = "stock")
-//    public void setStockInfo(DemoPickerView view, @Nullable JSONObject stockInfo) {
-//        view.setStockInfo(stockInfo);
-//    }
+    @ReactProp(name = "stock")
+    public void setStockInfo(DemoPickerView view, @Nullable String stockInfo) {
+        view.setStockInfo(stockInfo);
+    }
 }

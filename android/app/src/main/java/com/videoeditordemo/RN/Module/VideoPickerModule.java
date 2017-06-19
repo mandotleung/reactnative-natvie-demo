@@ -1,4 +1,4 @@
-package com.videoeditordemo;
+package com.videoeditordemo.RN.Module;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,7 +31,7 @@ public class VideoPickerModule extends ReactContextBaseJavaModule {
 
         @Override
         public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
-            Log.d(TAG, "onActivityResult: " + requestCode);
+            Log.d(TAG, "onActivityResult: " + requestCode + " resultCode: " + resultCode);
             if (requestCode == IMAGE_PICKER_REQUEST) {
                 if (mPickerPromise != null) {
                     if (resultCode == Activity.RESULT_CANCELED) {
