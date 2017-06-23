@@ -5,15 +5,15 @@
    StyleSheet,
    Text,
    View,
-   Button
+   Button,
+   Alert
  } from 'react-native';
 
+import { Platform } from 'react-native';
+
 import {
-  AndroidDemoToastModule,
-  AndroidVideoPickerModule,
-  Log,
   DemoPickerView
-} from '../../NativeModules/Android/index';
+} from '../../NativeModules/iOS/index';
 
 export default class VideoPickerScreen extends Component{
   static navigationOptions = {
@@ -31,11 +31,17 @@ export default class VideoPickerScreen extends Component{
     }
 
   _onChange(event: Event){
-    AndroidDemoToastModule.show(JSON.stringify(event.nativeEvent), AndroidDemoToastModule.SHORT);
     this.setState({
       isEditorLaunch: false,
       videoPath: event.nativeEvent,
     });
+    Alert.alert(
+      '',
+      JSON.stringify(event.nativeEvent),
+      [
+        {text: 'OK', onPress: () => {}},
+      ]
+    )
   }
 
   launchEditor = () => {
@@ -55,13 +61,14 @@ export default class VideoPickerScreen extends Component{
 
     if(this.state.isEditorLaunch)
     {
+      console.log('ios');
       view =
         <View style={{flex:1}}>
           <Text>
             Below Yellow Frame is embedded video editor lib view
           </Text>
           <DemoPickerView
-            stock={JSON.stringify({id:123})}
+            stockInfo={{id:123}}
             style={{flex:1, backgroundColor:'#ff0'}}
             onChange={this._onChange}
           />
@@ -75,3 +82,10 @@ export default class VideoPickerScreen extends Component{
     )
   }
 }
+
+VideoPickerScreen.propTypes = {
+  /**
+   * Callback that is called continuously when the user is dragging the map.
+   */
+  onChange: React.PropTypes.func,
+};

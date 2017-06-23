@@ -6,6 +6,7 @@
 
  import React, { Component } from 'react';
  import {
+   Platform,
    StyleSheet,
    Text,
    View,
@@ -74,6 +75,7 @@ class VideoEditorDemo extends Component{
          <View  style={styles.button}>
            <Button title='RN call native module Toast'
              onPress={()=>{
+               if(Platform.OS === 'ios') return;
                AndroidDemoToastModule.show('Awesome', AndroidDemoToastModule.SHORT);
              }}
            />
@@ -82,6 +84,7 @@ class VideoEditorDemo extends Component{
          <View  style={styles.button}>
            <Button title='RN Launch Video Editor Lib as Activity'
              onPress={()=>{
+               if(Platform.OS === 'ios') return;
                AndroidVideoPickerModule.pickNEditVideoAsActivity()
                .then((path) => {
                  console.log(path);
