@@ -1,9 +1,5 @@
-### introduction
+### Note for iOS sample
 Following this [guide](https://facebook.github.io/react-native/docs/native-components-ios.html) to build a native ui module within embedded framework. After built this sample, there is one things need to be noted.
-
-#### guide
-https://facebook.github.io/react-native/docs/native-components-ios.html
-
 To control the view property form JS to native, use 
 ```
 RCT_EXPORT_VIEW_PROPERTY
