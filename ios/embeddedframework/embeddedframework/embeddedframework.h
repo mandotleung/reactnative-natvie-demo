@@ -16,4 +16,5 @@ FOUNDATION_EXPORT const unsigned char embeddedframeworkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <embeddedframework/PublicHeader.h>
 #import "DemoPickerView.h"
+#import "VDDemoPickerViewController.h"
 

@@ -13,7 +13,6 @@
 #import <React/RCTRootView.h>
 
 #import <embeddedframework/embeddedframework.h>
-#import "VDVideoEditorViewController.h"
 
 @implementation AppDelegate
 
@@ -46,7 +45,7 @@
 
 - (void) launchVideoPicker{
   NSLog(@"launchVideoEditor");
-  VDVideoEditorViewController* controller = [[VDVideoEditorViewController alloc] init];
+  VDDemoPickerViewController* controller = [[VDDemoPickerViewController alloc] init];
   [self.rootViewController.navigationController pushViewController:controller animated:YES];
 }
 

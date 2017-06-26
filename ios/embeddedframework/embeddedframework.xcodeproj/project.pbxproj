@@ -13,6 +13,9 @@
 		A612C78B1EFBCC8100C27ED8 /* DemoPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = A612C7881EFBCC8100C27ED8 /* DemoPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A612C78C1EFBCC8100C27ED8 /* DemoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C7891EFBCC8100C27ED8 /* DemoPickerView.m */; };
 		A612C78D1EFBCC8100C27ED8 /* DemoPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A612C78A1EFBCC8100C27ED8 /* DemoPickerView.xib */; };
+		A67D843A1F00A99D00B9D4C4 /* VDDemoPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A67D84371F00A99D00B9D4C4 /* VDDemoPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A67D843B1F00A99D00B9D4C4 /* VDDemoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67D84381F00A99D00B9D4C4 /* VDDemoPickerViewController.m */; };
+		A67D843C1F00A99D00B9D4C4 /* VDDemoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67D84391F00A99D00B9D4C4 /* VDDemoPickerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 		A612C7881EFBCC8100C27ED8 /* DemoPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPickerView.h; sourceTree = "<group>"; };
 		A612C7891EFBCC8100C27ED8 /* DemoPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPickerView.m; sourceTree = "<group>"; };
 		A612C78A1EFBCC8100C27ED8 /* DemoPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoPickerView.xib; sourceTree = "<group>"; };
+		A67D84371F00A99D00B9D4C4 /* VDDemoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDDemoPickerViewController.h; sourceTree = "<group>"; };
+		A67D84381F00A99D00B9D4C4 /* VDDemoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDDemoPickerViewController.m; sourceTree = "<group>"; };
+		A67D84391F00A99D00B9D4C4 /* VDDemoPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VDDemoPickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 		A612C75F1EFBCAFD00C27ED8 /* embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
+				A67D84141F00A6BA00B9D4C4 /* Controller */,
 				A612C7871EFBCC8100C27ED8 /* View */,
 				A612C7601EFBCAFD00C27ED8 /* embeddedframework.h */,
 				A612C7611EFBCAFD00C27ED8 /* Info.plist */,
@@ -103,6 +110,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A67D84141F00A6BA00B9D4C4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A67D84371F00A99D00B9D4C4 /* VDDemoPickerViewController.h */,
+				A67D84381F00A99D00B9D4C4 /* VDDemoPickerViewController.m */,
+				A67D84391F00A99D00B9D4C4 /* VDDemoPickerViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -112,6 +129,7 @@
 			files = (
 				A612C78B1EFBCC8100C27ED8 /* DemoPickerView.h in Headers */,
 				A612C76E1EFBCAFD00C27ED8 /* embeddedframework.h in Headers */,
+				A67D843A1F00A99D00B9D4C4 /* VDDemoPickerViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67D843C1F00A99D00B9D4C4 /* VDDemoPickerViewController.xib in Resources */,
 				A612C78D1EFBCC8100C27ED8 /* DemoPickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A612C78C1EFBCC8100C27ED8 /* DemoPickerView.m in Sources */,
+				A67D843B1F00A99D00B9D4C4 /* VDDemoPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

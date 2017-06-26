@@ -6,12 +6,12 @@
 //  Copyright © 2017 Facebook. All rights reserved.
 //
 
-#import "VDVideoPickerManager.h"
+#import "VDDemoPickerVCManager.h"
 
 #import "AppDelegate.h"
-#import "VDVideoEditorViewController.h"
+#import <embeddedframework/embeddedframework.h>
 
-@implementation VDVideoPickerManager
+@implementation VDDemoPickerVCManager
 
 RCT_EXPORT_MODULE();
 
@@ -31,14 +31,14 @@ RCT_EXPORT_METHOD(launchVideoEditor)
     // 2. access the app delegate root vc(UINavigationController) and push vc
     AppDelegate *share = (AppDelegate *)[UIApplication sharedApplication].delegate;
     UINavigationController *nav = (UINavigationController *) share.window.rootViewController;
-    VDVideoEditorViewController* controller = [[VDVideoEditorViewController alloc] init];
+    
+    VDDemoPickerViewController* controller = [[VDDemoPickerViewController alloc] init];
     [nav pushViewController:controller animated:YES];
   });
 }
 
 - (void)startObserving
 {
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(VideoPickReceived:)
                                                  name:@"VideoPick"

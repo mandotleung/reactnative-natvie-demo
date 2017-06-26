@@ -20,7 +20,7 @@ which also require
 #import <React/RCTComponent.h>
 ```
 
-Within a framework to import the header files from other framework, it need to   
+Within a framework to import the header files from other framework, you need to   
 "going Build Settings under "Target" and set "Allow Non-modular Includes in Framework Modules" to YES."  
 from  
 https://stackoverflow.com/questions/27776497/include-of-non-modular-header-inside-framework-module
