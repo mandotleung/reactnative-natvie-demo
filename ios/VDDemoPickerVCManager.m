@@ -20,7 +20,7 @@ RCT_EXPORT_MODULE();
   return @[@"VideoPick", @"memoryWarning"];
 }
 
-RCT_EXPORT_METHOD(launchVideoEditor)
+RCT_EXPORT_METHOD(launchVideoEditor:(RCTResponseSenderBlock)callback)
 {
   // There are two ways to push native vc
   // no matter with way, dispatch to main thread is required. RN use the JS thread other than main thread/bg thread
@@ -32,39 +32,44 @@ RCT_EXPORT_METHOD(launchVideoEditor)
     AppDelegate *share = (AppDelegate *)[UIApplication sharedApplication].delegate;
     UINavigationController *nav = (UINavigationController *) share.window.rootViewController;
     
-    VDDemoPickerViewController* controller = [[VDDemoPickerViewController alloc] init];
+    VDDemoPickerViewController* controller = [[VDDemoPickerViewController alloc]
+                                              initWithCallBack:^(NSArray* data){
+                                                callback(data);
+                                              }];
     [nav pushViewController:controller animated:YES];
   });
 }
 
-- (void)startObserving
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(VideoPickReceived:)
-                                                 name:@"VideoPick"
-                                               object:nil];
-  
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(handleMemoryWarning)
-                                               name:UIApplicationDidReceiveMemoryWarningNotification
-                                             object:nil];
-}
+//- (void)startObserving
+//{
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(VideoPickReceived:)
+//                                                 name:@"VideoPick"
+//                                               object:nil];
+//  
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                           selector:@selector(handleMemoryWarning)
+//                                               name:UIApplicationDidReceiveMemoryWarningNotification
+//                                             object:nil];
+//}
+//
+//- (void)stopObserving
+//{
+//  [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
+//
+//- (void)handleMemoryWarning
+//{
+//  [self sendEventWithName:@"memoryWarning" body:nil];
+//}
 
-- (void)stopObserving
-{
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
-- (void)handleMemoryWarning
-{
-  [self sendEventWithName:@"memoryWarning" body:nil];
-}
+//- (void)VideoPickReceived:(NSNotification *)notification
+//{
+//  NSLog(@"VideoPickReceived");
+//  //NSString *eventName = notification.userInfo[@"name"];
+//  [self sendEventWithName:@"VideoPick" body:@{@"key": notification.userInfo[@"key"]}];
+//}
 
-- (void)VideoPickReceived:(NSNotification *)notification
-{
-  NSLog(@"VideoPickReceived");
-  //NSString *eventName = notification.userInfo[@"name"];
-  [self sendEventWithName:@"VideoPick" body:@{@"key": notification.userInfo[@"key"]}];
-}
 
 @end

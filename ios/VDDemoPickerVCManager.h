@@ -11,6 +11,6 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 
-@interface VDDemoPickerVCManager : RCTEventEmitter <RCTBridgeModule>
+@interface VDDemoPickerVCManager : NSObject <RCTBridgeModule>
 
 @end

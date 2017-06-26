@@ -54,23 +54,23 @@ class VideoEditorDemo extends Component{
     title: 'VideoEditorDemo',
   };
   componentDidMount(){
-    const subscription = VideoPickerManagerEmitter.addListener(
-      'VideoPick',
-      (data) => {
-        //console.log('VideoPick' , data.key);
-        Alert.alert(
-          '',
-          JSON.stringify(data),
-          [
-            {text: 'OK', onPress: () => {}},
-          ]
-        )
-      }
-    );
+    // const subscription = VideoPickerManagerEmitter.addListener(
+    //   'VideoPick',
+    //   (data) => {
+    //     //console.log('VideoPick' , data.key);
+    //     Alert.alert(
+    //       '',
+    //       JSON.stringify(data),
+    //       [
+    //         {text: 'OK', onPress: () => {}},
+    //       ]
+    //     )
+    //   }
+    // );
   }
 
   componentWillUnmount(){
-    subscription.remove();
+    // subscription.remove();
   }
 
    render() {
@@ -118,7 +118,16 @@ class VideoEditorDemo extends Component{
              onPress={()=>{
                if(Platform.OS === 'ios')
                {
-                 VideoPickerManager.launchVideoEditor();
+                 VideoPickerManager.launchVideoEditor((error, data) => {
+                   let message = 'err: return from lib'
+                   Alert.alert(
+                           '',
+                           error? message : data["key"],
+                           [
+                     {text: 'OK', onPress: () => {}},
+                           ]
+                   )
+                 });
                }
                else
                {

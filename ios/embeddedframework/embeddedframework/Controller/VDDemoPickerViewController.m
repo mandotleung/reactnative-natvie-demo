@@ -14,9 +14,10 @@
 
 @implementation VDDemoPickerViewController
 
-- (instancetype)init{
+- (instancetype)initWithCallBack:(void(^)(NSArray*))callback{
     if(self){
         self = [self initWithNibName:@"VDDemoPickerViewController" bundle:[NSBundle bundleWithIdentifier:@"com.embeddedframework"]];
+        self.callback = callback;
     }
     return self;
 }
@@ -37,6 +38,9 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+    if(self.callback)
+        self.callback(@[@"1", @{}]);
+    self.callback = nil; // release pointer
     self.navigationController.navigationBar.hidden = true;
 }
 
@@ -46,7 +50,11 @@
 }
 
 - (IBAction)onReturnClick:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"VideoPick" object:self userInfo:@{@"key":self.pathTextField.text}];
+    if(self.callback)
+        self.callback(@[[NSNull null], @{@"key" : self.pathTextField.text}]);
+    self.callback = nil; // release pointer
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"VideoPick" object:self userInfo:@{@"key":self.pathTextField.text}];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
