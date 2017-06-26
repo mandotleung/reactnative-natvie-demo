@@ -13,6 +13,7 @@
 #import <React/RCTRootView.h>
 
 #import <embeddedframework/embeddedframework.h>
+#import "VDVideoEditorViewController.h"
 
 @implementation AppDelegate
 
@@ -29,13 +30,28 @@
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  self.rootViewController = [UIViewController new];
+  self.rootViewController.view = rootView;
+  
+  UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
+  mainNavigationController.navigationBar.hidden = YES;
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchVideoPicker) name:@"LaunchVideoPicker" object:nil];
+  
+  self.window.rootViewController = mainNavigationController;
   [self.window makeKeyAndVisible];
   
-  
   return YES;
+}
+
+- (void) launchVideoPicker{
+  NSLog(@"launchVideoEditor");
+  VDVideoEditorViewController* controller = [[VDVideoEditorViewController alloc] init];
+  [self.rootViewController.navigationController pushViewController:controller animated:YES];
+}
+
+- (void) applicationWillTerminate:(UIApplication *)application{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

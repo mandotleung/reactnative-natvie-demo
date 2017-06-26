@@ -10,7 +10,8 @@
    StyleSheet,
    Text,
    View,
-   Button
+   Button,
+   Alert
  } from 'react-native';
 
 import {
@@ -19,6 +20,8 @@ import {
   Log,
   DemoPickerView
 } from './NativeModules/Android/index';
+
+import { VideoPickerManager, VideoPickerManagerEmitter } from './NativeModules/iOS/index';
 
 import { StackNavigator } from 'react-navigation';
 
@@ -50,8 +53,44 @@ class VideoEditorDemo extends Component{
   static navigationOptions = {
     title: 'VideoEditorDemo',
   };
+  componentDidMount(){
+    const subscription = VideoPickerManagerEmitter.addListener(
+      'VideoPick',
+      (data) => {
+        //console.log('VideoPick' , data.key);
+        Alert.alert(
+          '',
+          JSON.stringify(data),
+          [
+            {text: 'OK', onPress: () => {}},
+          ]
+        )
+      }
+    );
+  }
+
+  componentWillUnmount(){
+    subscription.remove();
+  }
+
    render() {
      const { navigate } = this.props.navigation;
+     let buttonView = (
+       <View  style={styles.button}>
+         <Button title='RN call native module Toast'
+           onPress={()=>{
+             if(Platform.OS === 'ios') return;
+             AndroidDemoToastModule.show('Awesome', AndroidDemoToastModule.SHORT);
+           }}
+         />
+       </View>
+     );
+     let buttonTitle = 'RN Launch Video Editor Lib as Activity';
+     if(Platform.OS === 'ios')
+     {
+       buttonView = <View></View>;
+       buttonTitle = 'RN Launch Video Editor Lib as ViewController'
+     }
      return (
        <View style={styles.container}>
          <Text style={styles.welcome}>
@@ -72,30 +111,29 @@ class VideoEditorDemo extends Component{
            Press Cmd+R to reload,{'\n'}
            Cmd+D or shake for dev menu
          </Text> */}
-         <View  style={styles.button}>
-           <Button title='RN call native module Toast'
-             onPress={()=>{
-               if(Platform.OS === 'ios') return;
-               AndroidDemoToastModule.show('Awesome', AndroidDemoToastModule.SHORT);
-             }}
-           />
-         </View>
+         {buttonView}
 
          <View  style={styles.button}>
-           <Button title='RN Launch Video Editor Lib as Activity'
+           <Button title={buttonTitle}
              onPress={()=>{
-               if(Platform.OS === 'ios') return;
-               AndroidVideoPickerModule.pickNEditVideoAsActivity()
-               .then((path) => {
-                 console.log(path);
-                 Log.i('index.js', path);
-                 AndroidDemoToastModule.show('path: ' + path, AndroidDemoToastModule.SHORT);
-               })
-               .catch((err) => {
-                 console.log(err);
-                 Log.e('index.js', err.message);
-                 AndroidDemoToastModule.show('err: ' + err, AndroidDemoToastModule.SHORT);
-               })
+               if(Platform.OS === 'ios')
+               {
+                 VideoPickerManager.launchVideoEditor();
+               }
+               else
+               {
+                 AndroidVideoPickerModule.pickNEditVideoAsActivity()
+                 .then((path) => {
+                   console.log(path);
+                   Log.i('index.js', path);
+                   AndroidDemoToastModule.show('path: ' + path, AndroidDemoToastModule.SHORT);
+                 })
+                 .catch((err) => {
+                   console.log(err);
+                   Log.e('index.js', err.message);
+                   AndroidDemoToastModule.show('err: ' + err, AndroidDemoToastModule.SHORT);
+                 });
+               }
              }}
            />
          </View>

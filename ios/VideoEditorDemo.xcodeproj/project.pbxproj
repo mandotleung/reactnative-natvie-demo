@@ -39,6 +39,9 @@
 		A612C78F1EFBD0A300C27ED8 /* embeddedframework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A612C77D1EFBCAFF00C27ED8 /* embeddedframework.framework */; };
 		A612C7901EFBD0A300C27ED8 /* embeddedframework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A612C77D1EFBCAFF00C27ED8 /* embeddedframework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A612C7961EFBD4EA00C27ED8 /* RNTPickerViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A612C7951EFBD4EA00C27ED8 /* RNTPickerViewManager.m */; };
+		A67718841EFD187C0036A2FA /* VDVideoPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A67718831EFD187C0036A2FA /* VDVideoPickerManager.m */; };
+		A67718881EFD1C5B0036A2FA /* VDVideoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67718861EFD1C5B0036A2FA /* VDVideoEditorViewController.m */; };
+		A67718891EFD1C5B0036A2FA /* VDVideoEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67718871EFD1C5B0036A2FA /* VDVideoEditorViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +313,11 @@
 		A612C7771EFBCAFD00C27ED8 /* embeddedframework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = embeddedframework.xcodeproj; path = embeddedframework/embeddedframework.xcodeproj; sourceTree = "<group>"; };
 		A612C7941EFBD4EA00C27ED8 /* RNTPickerViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNTPickerViewManager.h; sourceTree = "<group>"; };
 		A612C7951EFBD4EA00C27ED8 /* RNTPickerViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNTPickerViewManager.m; sourceTree = "<group>"; };
+		A67718821EFD187C0036A2FA /* VDVideoPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDVideoPickerManager.h; sourceTree = "<group>"; };
+		A67718831EFD187C0036A2FA /* VDVideoPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDVideoPickerManager.m; sourceTree = "<group>"; };
+		A67718851EFD1C5B0036A2FA /* VDVideoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDVideoEditorViewController.h; sourceTree = "<group>"; };
+		A67718861EFD1C5B0036A2FA /* VDVideoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDVideoEditorViewController.m; sourceTree = "<group>"; };
+		A67718871EFD1C5B0036A2FA /* VDVideoEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VDVideoEditorViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +462,11 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				A612C7941EFBD4EA00C27ED8 /* RNTPickerViewManager.h */,
 				A612C7951EFBD4EA00C27ED8 /* RNTPickerViewManager.m */,
+				A67718821EFD187C0036A2FA /* VDVideoPickerManager.h */,
+				A67718831EFD187C0036A2FA /* VDVideoPickerManager.m */,
+				A67718851EFD1C5B0036A2FA /* VDVideoEditorViewController.h */,
+				A67718861EFD1C5B0036A2FA /* VDVideoEditorViewController.m */,
+				A67718871EFD1C5B0036A2FA /* VDVideoEditorViewController.xib */,
 			);
 			name = VideoEditorDemo;
 			sourceTree = "<group>";
@@ -946,6 +959,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67718891EFD1C5B0036A2FA /* VDVideoEditorViewController.xib in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -1015,6 +1029,8 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				A612C7961EFBD4EA00C27ED8 /* RNTPickerViewManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				A67718841EFD187C0036A2FA /* VDVideoPickerManager.m in Sources */,
+				A67718881EFD1C5B0036A2FA /* VDVideoEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
