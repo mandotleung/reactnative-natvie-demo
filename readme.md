@@ -1,4 +1,4 @@
-### introduction
+### Introduction
 A sample to demonstrate interactive between ReactNative and Native
 
 ### Prerequisite
@@ -33,6 +33,8 @@ open xcodepoj
 run the app
 ```
 
-### Remarks  
+### iOS  
 iOS native UI module + embedded framework sample is ready [here](https://github.com/mandotleung/reactnative-natvie-demo/tree/master/ios)  
-iOS viewcontroller seem not supported by react-native. Trying other possibility currently.
+
+### Android
+Android sample is ready [here](https://github.com/mandotleung/reactnative-natvie-demo/tree/master/android) 
