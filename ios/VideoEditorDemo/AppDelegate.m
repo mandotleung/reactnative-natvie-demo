@@ -43,11 +43,11 @@
   return YES;
 }
 
-- (void) launchVideoPicker{
-  NSLog(@"launchVideoEditor");
-  VDDemoPickerViewController* controller = [[VDDemoPickerViewController alloc] init];
-  [self.rootViewController.navigationController pushViewController:controller animated:YES];
-}
+//- (void) launchVideoPicker{
+//  NSLog(@"launchVideoEditor");
+//  VDDemoPickerViewController* controller = [[VDDemoPickerViewController alloc] init];
+//  [self.rootViewController.navigationController pushViewController:controller animated:YES];
+//}
 
 - (void) applicationWillTerminate:(UIApplication *)application{
   [[NSNotificationCenter defaultCenter] removeObserver:self];

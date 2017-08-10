@@ -1,5 +1,4 @@
 //@flow
-
 import { PropTypes } from 'react';
 import { requireNativeComponent, View } from 'react-native';
 

@@ -12,9 +12,6 @@ react-native run-android
 ```
 or
 ```
-react-native run-android 
-(waiting for start the packager) 
-quick app 
 open android studio
 run the app
 ```
@@ -26,9 +23,6 @@ react-native run-ios
 ```
 or
 ```
-react-native run-ios 
-(waiting for start the packager) 
-quick app
 open xcodepoj
 run the app
 ```
